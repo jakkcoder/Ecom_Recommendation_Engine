@@ -1,6 +1,6 @@
 # Step 1: Clarify and Frame the Problem
 
-This document is a guide for the first step in a case study interview: clarifying and framing the problem. The goal is to remove ambiguity, align on success metrics, and define constraints before proposing solutions.
+This document is a guide for the first step in a case study interview: briefly stating the user journey, then clarifying and framing the problem. The goal is to remove ambiguity, align on success metrics, and define constraints before proposing solutions.
 
 ## Outcome of Step 1
 
@@ -12,6 +12,12 @@ By the end of this step, you should have:
 - Key constraints and risks
 - A shared understanding of scope and time horizon
 
+## Start With a Brief User Journey
+
+Keep this to 1–2 sentences to set context before you ask questions.
+
+**Example**: “Users discover items via home feed or search, evaluate on item pages, and take actions like click, save, or bid.”
+
 ## Clarifying Questions to Ask
 
 Use these questions to gather the minimum information needed to proceed.
@@ -21,6 +27,7 @@ Use these questions to gather the minimum information needed to proceed.
 - Which product surface are we focusing on (home feed, search, item page)?
 - Who is the primary user segment for this surface?
 - What is the primary business goal for this initiative?
+- Which stage of the journey has the biggest drop-off?
 
 ### Success Metrics
 
