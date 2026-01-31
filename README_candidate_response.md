@@ -18,40 +18,15 @@ Keep this to 1–2 sentences to set context before you ask questions.
 
 **Example**: “Users discover items via home feed or search, evaluate on item pages, and take actions like click, save, or bid.”
 
-## Clarifying Questions to Ask
+## Clarifying Questions (Short List)
 
-Use these questions to gather the minimum information needed to proceed.
+Keep this crisp to avoid interview fatigue. Ask only what you must know to proceed.
 
-### Product Context
-
-- Which product surface are we focusing on (home feed, search, item page)?
-- Who is the primary user segment for this surface?
-- What is the primary business goal for this initiative?
-- Which stage of the journey has the biggest drop-off?
-
-### Success Metrics
-
-- What is the north-star metric we should optimize?
-- What guardrail metrics must not regress?
-- Over what time horizon should we measure impact (30/60/90 days)?
-
-### Constraints & Trade-offs
-
-- Are there latency or infrastructure constraints for serving recommendations?
-- How important is freshness vs. relevance vs. diversity?
-- Are there marketplace integrity constraints (spam, fraud, seller fairness)?
-
-### Data & Experimentation
-
-- What data is available for training and evaluation?
-- Do we have historical interaction logs (clicks, bids, saves)?
-- What experiments or A/B testing capabilities exist today?
-
-### Scope & Priorities
-
-- Is the goal to build a baseline quickly or to maximize performance?
-- Are we expected to propose a full system design or a prototype model?
-- What is the acceptable implementation complexity for this round?
+- Which surface are we optimizing (home feed, search, item page)?
+- What is the north-star metric and key guardrail?
+- Which user segment and journey stage matter most?
+- What data is available (impressions, clicks, bids, saves)?
+- Any hard constraints (latency, freshness/diversity, integrity)?
 
 ## Suggested Framing Statement (Example)
 
