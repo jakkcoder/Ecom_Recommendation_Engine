@@ -17,19 +17,24 @@ Propose and prototype a recommendation system that improves engagement and conve
 To proceed quickly, I will ask only a few key clarification questions.
 
 **Candidate**: Which surface are we optimizing (home feed, search, item page)?
+
 **Interviewer**: Focus on the **home feed** for an auction marketplace like Catawiki. Users land there first, and it’s underperforming.
 
 **Candidate**: What is the north-star metric and one key guardrail?
+
 **Interviewer**: **North-star**: qualified engagement per session on the home feed (e.g., session with at least one meaningful action like click → watchlist or bid).  
 **Guardrail**: don’t reduce conversion to bid, and don’t hurt user trust (e.g., hides/complaints).
 
 **Candidate**: Which user segment and journey stage matter most?
+
 **Interviewer**: Prioritize **returning users** (they drive most bids). Biggest drop-off is **feed → item-detail click**. Secondary: item-detail → watchlist/bid.
 
 **Candidate**: What data is available (impressions, clicks, bids, saves)?
+
 **Interviewer**: We have feed impressions (items shown + position), clicks to item pages, watchlist/saves, bids (and outcomes), and item metadata (category/attributes, price estimate, auction end time, plus item/seller quality signals).
 
 **Candidate**: Any hard constraints (latency, freshness/diversity, integrity)?
+
 **Interviewer**: Yes. Latency p95 ~150ms, enforce freshness (new items + ending soon), ensure diversity (avoid near-duplicates), and protect integrity (avoid manipulation; don’t over-promote low-quality sellers/items).
 
 **Interviewer**: Please proceed with reasonable assumptions. State them clearly, and explain how you’d validate them with data.
@@ -45,25 +50,30 @@ To proceed quickly, I will ask only a few key clarification questions.
 **Candidate**: Next, I’ll structure the solution in steps.
 
 **Candidate (Step 2 — Define metrics)**:
+
 - Primary: qualified engagement per session (as defined).
 - Guardrails: bid conversion, hides/complaints, diversity coverage (e.g., category entropy), latency p95.
 - Slice metrics by user segment (new vs returning), category, price band, and time-to-end.
 
 **Candidate (Step 3 — Baseline)**:
+
 - Retrieval: rule-based candidates (ending soon + newly listed + popular in category) + simple item-item similarity (co-view/co-bid).
 - Ranking: a lightweight model (e.g., logistic regression / GBDT) predicting click or “qualified action” using user features + item features + context (position, time).
 - Rerank layer: enforce freshness and diversity constraints.
 
 **Candidate (Step 4 — Stronger model)**:
+
 - Use user/item embeddings for retrieval (two-tower) to handle sparsity and scale.
 - Add a learning-to-rank stage that optimizes qualified engagement with calibration for bids as a downstream objective.
 - Handle cold-start with content features (category/attributes) and exploration.
 
 **Candidate (Step 5 — Evaluation & experimentation)**:
+
 - Offline: temporal train/validation split; report NDCG/Recall@K for clicks/qualified actions plus bias-aware analysis.
 - Online: A/B test on returning users first; monitor guardrails (bids, trust signals, diversity, latency).
 
 **Candidate (Step 6 — Rollout & operations)**:
+
 - Start with a safe baseline behind a feature flag, then iterate.
 - Add monitoring for drift (new inventory shifts), abuse patterns, and seller fairness.
 
