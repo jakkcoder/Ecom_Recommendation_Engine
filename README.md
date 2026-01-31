@@ -1,6 +1,6 @@
-# Recommendation Engine Case Study (Catawiki-style Marketplace)
+# Recommendation Engine Case Study (Marketplace)
 
-This repository is a learning-focused case study for a product + data science/ML interview round at a marketplace similar to Catawiki. The goal is to design, evaluate, and communicate a recommendation system that improves user engagement and business outcomes while handling real-world constraints.
+This repository is a learning-focused case study for a product + data science/ML interview round at a marketplace. The goal is to design, evaluate, and communicate a recommendation system that improves user engagement and business outcomes while handling real-world constraints.
 
 ## Problem Statement
 
