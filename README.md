@@ -22,9 +22,9 @@ To proceed quickly, I will ask only key clarification questions:
 - What data is available (impressions, clicks, bids, saves)?
 - Any hard constraints (latency, freshness/diversity, integrity)?
 
-**Interviewer**: Answer based on what you know and make reasonable assumptions where needed.
+**Interviewer**: Please proceed with reasonable assumptions. Just state them clearly, and explain how you’d validate them with data.
 
-**Candidate**: Great. I will state assumptions, define success metrics, propose a baseline, and then outline a stronger model with evaluation and a rollout plan.
+**Candidate**: Great. I’ll state my assumptions explicitly (and flag what I’d validate), define success metrics, propose a baseline, and then outline a stronger model with evaluation and a rollout plan.
 
 ## References (Public Case Study Examples)
 
