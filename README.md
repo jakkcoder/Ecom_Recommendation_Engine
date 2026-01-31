@@ -36,6 +36,37 @@ To proceed quickly, I will ask only a few key clarification questions.
 
 **Candidate**: Great. I’ll state assumptions explicitly (and flag what I’d validate), define success metrics, propose a baseline retrieval + ranking approach, and then outline a stronger model with offline evaluation and an online rollout plan with guardrails.
 
+**Candidate**: Here are my assumptions (and how I’d validate them):
+
+- The home feed is a ranked list where we can log impressions reliably (validate: impression logging completeness + position bias checks).
+- “Qualified engagement” is a leading indicator for bidding (validate: correlation/causal lift via A/B test; check downstream bid impact).
+- Recency and “ending soon” matter in auctions and should be explicit features/constraints (validate: engagement vs. time-to-end curves).
+
+**Candidate**: Next, I’ll structure the solution in steps.
+
+**Candidate (Step 2 — Define metrics)**:
+- Primary: qualified engagement per session (as defined).
+- Guardrails: bid conversion, hides/complaints, diversity coverage (e.g., category entropy), latency p95.
+- Slice metrics by user segment (new vs returning), category, price band, and time-to-end.
+
+**Candidate (Step 3 — Baseline)**:
+- Retrieval: rule-based candidates (ending soon + newly listed + popular in category) + simple item-item similarity (co-view/co-bid).
+- Ranking: a lightweight model (e.g., logistic regression / GBDT) predicting click or “qualified action” using user features + item features + context (position, time).
+- Rerank layer: enforce freshness and diversity constraints.
+
+**Candidate (Step 4 — Stronger model)**:
+- Use user/item embeddings for retrieval (two-tower) to handle sparsity and scale.
+- Add a learning-to-rank stage that optimizes qualified engagement with calibration for bids as a downstream objective.
+- Handle cold-start with content features (category/attributes) and exploration.
+
+**Candidate (Step 5 — Evaluation & experimentation)**:
+- Offline: temporal train/validation split; report NDCG/Recall@K for clicks/qualified actions plus bias-aware analysis.
+- Online: A/B test on returning users first; monitor guardrails (bids, trust signals, diversity, latency).
+
+**Candidate (Step 6 — Rollout & operations)**:
+- Start with a safe baseline behind a feature flag, then iterate.
+- Add monitoring for drift (new inventory shifts), abuse patterns, and seller fairness.
+
 ## References (Public Case Study Examples)
 
 - https://www.casebasix.com/pages/amazon-case-study-interview
